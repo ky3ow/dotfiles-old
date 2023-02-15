@@ -65,4 +65,3 @@ end
 
 export EDITOR=nvim
 export VISUAL=nvim
-test -s /home/vova/.nvm-fish/nvm.fish; and source /home/vova/.nvm-fish/nvm.fish; 
