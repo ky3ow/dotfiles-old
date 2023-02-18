@@ -23,8 +23,8 @@ M.background = {
     {
         source = {
             File = {
-                path = wezterm.config_dir .. '/wallpapers/better_foresty_anim.png',
-                speed = 0.5
+                path = wezterm.config_dir .. '/wallpapers/kit.png',
+                speed = 1
             }
         },
         width = '100%',
