@@ -79,4 +79,10 @@ lazy.setup({
     { 'mrjones2014/nvim-ts-rainbow' },
     -- Rainbow indents
     { 'lukas-reineke/indent-blankline.nvim' },
+
+    -- Pets?? --
+    {
+        "giusgad/pets.nvim",
+        dependencies = { "MunifTanjim/nui.nvim", "edluffy/hologram.nvim" },
+    }
 })

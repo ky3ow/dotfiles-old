@@ -41,7 +41,7 @@ lsp.on_attach(function(_, bufnr)
     vim.keymap.set("n", "gk", function() vim.diagnostic.goto_prev() end, opts)
     vim.keymap.set("n", "<leader>la", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "<leader>lr", function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format({ async = true }) end, opts)
+    vim.keymap.set("", "<leader>lf", function() vim.lsp.buf.format({ async = true }) end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set("i", "<C-k>", function() vim.lsp.buf.signature_help() end, opts)
 end)
@@ -66,4 +66,3 @@ vim.diagnostic.config({
     virtual_text = true,
     update_in_insert = true,
 })
-

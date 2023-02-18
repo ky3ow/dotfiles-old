@@ -65,3 +65,5 @@ end
 
 export EDITOR=nvim
 export VISUAL=nvim
+
+eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
