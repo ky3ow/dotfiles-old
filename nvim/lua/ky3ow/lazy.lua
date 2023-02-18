@@ -1,21 +1,21 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-      "git",
-      "clone",
-      "--filter=blob:none",
-      "https://github.com/folke/lazy.nvim.git",
-      "--branch=stable", -- latest stable release
-      lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
 -- Safe load --
 local status_ok, lazy = pcall(require, "lazy")
 if not status_ok then
-  print("Lazy.nvim didn't install")
-  return
+    print("Lazy.nvim didn't install")
+    return
 end
 
 lazy.setup({
@@ -25,12 +25,12 @@ lazy.setup({
         lazy = false,
         priority = 1000,
         config = function()
-          require('nightfox').setup({
-              options = {
-                  transparent = true
-              }
-          })
-          vim.cmd('colorscheme terafox')
+            require('nightfox').setup({
+                options = {
+                    transparent = true
+                }
+            })
+            vim.cmd('colorscheme terafox')
         end
     },
     {
@@ -61,13 +61,22 @@ lazy.setup({
     {
         'nvim-telescope/telescope.nvim',
         version = '0.1.1',
-        dependencies = { { 'nvim-lua/plenary.nvim' } }
+        dependencies = {
+            {
+                'nvim-lua/plenary.nvim',
+            },
+            {
+                'duane9/nvim-rg'
+            }
+        }
     },
     -- Tree sitter(syntax highlight) --
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
     },
+    -- Rainbow brackets
     { 'mrjones2014/nvim-ts-rainbow' },
+    -- Rainbow indents
     { 'lukas-reineke/indent-blankline.nvim' },
 })

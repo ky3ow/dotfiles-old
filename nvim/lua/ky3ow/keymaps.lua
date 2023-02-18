@@ -20,6 +20,8 @@ vim.keymap.set("n", "<A-j>", "<C-w>j", opts)
 vim.keymap.set("n", "<A-k>", "<C-w>k", opts)
 vim.keymap.set("n", "<A-l>", "<C-w>l", opts)
 vim.keymap.set("n", "<A-c>", "<C-w>c", opts)
+vim.keymap.set("n", "<A-v>", "<C-w>v", opts)
+vim.keymap.set("n", "<A-s>", "<C-w>s", opts)
 
 -- Resize with arrows --
 vim.keymap.set("n", "<A-Up>", ":resize +2<CR>", opts)
@@ -44,8 +46,8 @@ vim.keymap.set("n", "N", "Nzzzv", opts)
 vim.keymap.set("n", "<C-l>", ":bnext<CR>", opts)
 vim.keymap.set("n", "<C-h>", ":bprevious<CR>", opts)
 
--- Exit with jk --
-vim.keymap.set("i", "jk", "<Esc>", opts)
+-- Haha hehe~ --
+vim.keymap.set("i", "<C-c>", "<Esc>", opts)
 
 -- Stay in indent mode --
 vim.keymap.set("v", "<", "<gv", opts)

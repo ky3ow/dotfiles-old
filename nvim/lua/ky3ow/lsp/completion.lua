@@ -43,23 +43,7 @@ M.setup = function(lsp)
             ["<C-Space>"] = cmp.mapping.complete(),
             ["<C-d>"]     = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
             ["<C-u>"]     = cmp.mapping(cmp.mapping.scroll_docs( -4), { "i", "c" }),
-            ["<C-e>"]     = cmp.mapping({
-                i = function()
-                    if cmp.visible() then
-                        cmp.abort()
-                    else
-                        cmp.complete()
-                    end
-                end,
-                c = function()
-                    if cmp.visible() then
-                        cmp.close()
-                    else
-                        cmp.complete()
-                    end
-                end,
-            }),
-            ["<C-c>"]     = cmp.mapping.confirm { select = true },
+            ["<C-a>"]     = cmp.mapping.confirm { select = true },
             ['<Tab>']
                           = cmp.mapping(function(fallback)
                 if luasnip.jumpable(1) then
