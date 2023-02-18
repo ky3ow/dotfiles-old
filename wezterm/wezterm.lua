@@ -1,5 +1,5 @@
 local M = {}
-local wezterm = require 'wezterm'
+local wezterm = require('wezterm')
 local terafox_colors = {
     base = "#0B1314",
     green = "#7AA4A1",
@@ -12,6 +12,7 @@ local terafox_colors = {
     blue = "#73A3B7",
     light_blue = "#AFD4DE",
 }
+
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     M.default_prog = { 'wsl' }
 end
@@ -75,5 +76,7 @@ M.inactive_pane_hsb = {
 }
 
 M.enable_kitty_graphics=true
+M.send_composed_key_when_alt_is_pressed = false
+M.use_ime = false
 
 return M
