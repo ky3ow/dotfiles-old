@@ -38,5 +38,14 @@ for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
+
 vim.opt.shortmess:append "c"
 vim.cmd "set whichwrap+=<,>,h,l,[,]"

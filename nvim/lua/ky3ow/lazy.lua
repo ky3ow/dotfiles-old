@@ -76,10 +76,11 @@ lazy.setup({
         build = ':TSUpdate',
     },
     -- Rainbow brackets
-    { 'mrjones2014/nvim-ts-rainbow' },
+    { 'mrjones2014/nvim-ts-rainbow', dependencies = { { 'nvim-treesitter/nvim-treesitter', } } },
     -- Rainbow indents
-    { 'lukas-reineke/indent-blankline.nvim' },
-
+    { 'lukas-reineke/indent-blankline.nvim', dependencies = { { 'nvim-treesitter/nvim-treesitter', } } },
+    -- Better objects
+    { 'nvim-treesitter/nvim-treesitter-textobjects', dependencies = { { 'nvim-treesitter/nvim-treesitter', } } },
     -- Pets?? --
     {
         "giusgad/pets.nvim",
