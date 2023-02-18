@@ -70,17 +70,25 @@ lazy.setup({
             }
         }
     },
+    -- Thing to make native fuzzy finder algo work?
+    {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make',
+        cond = function()
+            return vim.fn.executable 'make' == 1
+        end,
+    },
     -- Tree sitter(syntax highlight) --
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
     },
     -- Rainbow brackets
-    { 'mrjones2014/nvim-ts-rainbow', dependencies = { { 'nvim-treesitter/nvim-treesitter', } } },
+    { 'mrjones2014/nvim-ts-rainbow',                 dependencies = {  'nvim-treesitter/nvim-treesitter',  } },
     -- Rainbow indents
-    { 'lukas-reineke/indent-blankline.nvim', dependencies = { { 'nvim-treesitter/nvim-treesitter', } } },
+    { 'lukas-reineke/indent-blankline.nvim',         dependencies = {  'nvim-treesitter/nvim-treesitter',  } },
     -- Better objects
-    { 'nvim-treesitter/nvim-treesitter-textobjects', dependencies = { { 'nvim-treesitter/nvim-treesitter', } } },
+    { 'nvim-treesitter/nvim-treesitter-textobjects', dependencies = {  'nvim-treesitter/nvim-treesitter',  } },
     -- Pets?? --
     {
         "giusgad/pets.nvim",
