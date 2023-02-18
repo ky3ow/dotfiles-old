@@ -19,8 +19,8 @@ $character"""
 symbol = " "
 
 [character]
-success_symbol = "[](bold green)"
-error_symbol = "[](bold red)"
+success_symbol = "[](bold green)"
+error_symbol = "[](bold red)"
 
 [git_branch]
 symbol = " "
@@ -58,6 +58,7 @@ symbol = " "
 
 [directory]
 read_only = " "
+style = "bold cyan"
 
 [docker_context]
 symbol = " "
