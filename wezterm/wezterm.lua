@@ -74,4 +74,6 @@ M.inactive_pane_hsb = {
     brightness = 0.4,
 }
 
+M.enable_kitty_graphics=true
+
 return M
