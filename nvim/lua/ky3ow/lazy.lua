@@ -21,16 +21,11 @@ end
 lazy.setup({
     -- Best color scheme --
     {
-        "EdenEast/nightfox.nvim",
+        "volodymyr-havryliuk165/shadotheme",
         lazy = false,
         priority = 1000,
         config = function()
-            require('nightfox').setup({
-                options = {
-                    transparent = true
-                }
-            })
-            vim.cmd('colorscheme terafox')
+            vim.cmd('colorscheme shado')
         end
     },
     {
@@ -84,14 +79,14 @@ lazy.setup({
         build = ':TSUpdate',
     },
     -- Rainbow brackets
-    { 'mrjones2014/nvim-ts-rainbow',                 dependencies = {  'nvim-treesitter/nvim-treesitter',  } },
+    { 'mrjones2014/nvim-ts-rainbow',                 dependencies = { 'nvim-treesitter/nvim-treesitter', } },
     -- Rainbow indents
-    { 'lukas-reineke/indent-blankline.nvim',         dependencies = {  'nvim-treesitter/nvim-treesitter',  } },
+    { 'lukas-reineke/indent-blankline.nvim',         dependencies = { 'nvim-treesitter/nvim-treesitter', } },
     -- Better objects
-    { 'nvim-treesitter/nvim-treesitter-textobjects', dependencies = {  'nvim-treesitter/nvim-treesitter',  } },
+    { 'nvim-treesitter/nvim-treesitter-textobjects', dependencies = { 'nvim-treesitter/nvim-treesitter', } },
     -- Pets?? --
     {
         "giusgad/pets.nvim",
         dependencies = { "MunifTanjim/nui.nvim", "edluffy/hologram.nvim" },
-    }
+    },
 })

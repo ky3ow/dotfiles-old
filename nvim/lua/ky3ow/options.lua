@@ -25,8 +25,8 @@ local options = {
     expandtab = true,
     shiftwidth = 4,
     tabstop = 4,
-    cursorline = true,
     number = true,
+    cursorline = true,
     relativenumber = true,
     numberwidth = 4,
     signcolumn = "yes",
@@ -40,11 +40,11 @@ end
 
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+    group = highlight_group,
+    pattern = '*',
 })
 
 vim.opt.shortmess:append "c"
