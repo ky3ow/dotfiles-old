@@ -4,6 +4,7 @@ local options = {
     conceallevel = 0,
     completeopt = { "menuone", "noselect" },
     fileencoding = "utf-8",
+    gdefault = true,
     hlsearch = false,
     ignorecase = true,
     mouse = "a",

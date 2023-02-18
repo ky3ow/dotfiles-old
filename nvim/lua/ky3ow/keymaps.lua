@@ -72,4 +72,5 @@ vim.keymap.set("v", "<leader>d", '"_d', opts)
 vim.keymap.set("x", "<leader>d", '"_d', opts)
 
 -- Substitute --
-vim.keymap.set("n", "<leader>*", ":%s/\\<<C-r><C-w>\\>/", opts)
+vim.keymap.set("n", "<leader>*", ":%s/<C-r><C-w>/", opts)
+vim.keymap.set("n", "<leader>_", ":%s/\\<<C-r><C-w>\\>/", opts)
