@@ -66,4 +66,8 @@ end
 export EDITOR=nvim
 export VISUAL=nvim
 
-eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+switch (uname)
+    case Linux
+        eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    case Darwin
+end
