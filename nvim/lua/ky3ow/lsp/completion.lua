@@ -27,7 +27,6 @@ local kind_icons = {
     Operator = "",
     TypeParameter = "",
 }
-
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
     return
@@ -38,28 +37,28 @@ local cmp = require('cmp')
 M.setup = function(lsp)
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
     local cmp_mappings = lsp.defaults.cmp_mappings({
-            ["<C-k>"]     = cmp.mapping.select_prev_item(cmp_select),
-            ["<C-j>"]     = cmp.mapping.select_next_item(cmp_select),
-            ["<C-Space>"] = cmp.mapping.complete(),
-            ["<C-d>"]     = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-            ["<C-u>"]     = cmp.mapping(cmp.mapping.scroll_docs( -4), { "i", "c" }),
-            ["<C-a>"]     = cmp.mapping.confirm { select = true },
-            ['<Tab>']
-                          = cmp.mapping(function(fallback)
-                if luasnip.jumpable(1) then
-                    luasnip.jump(1)
-                else
-                    fallback()
-                end
-            end, { 'i', 's' }),
-            ['<S-Tab>']   = cmp.mapping(function(fallback)
-                if luasnip.jumpable( -1) then
-                    luasnip.jump( -1)
-                else
-                    fallback()
-                end
-            end, { 'i', 's' }),
-        })
+        ["<CR>"]      = cmp.config.disable,
+        ["<C-k>"]     = cmp.mapping.select_prev_item(cmp_select),
+        ["<C-j>"]     = cmp.mapping.select_next_item(cmp_select),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-d>"]     = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+        ["<C-u>"]     = cmp.mapping(cmp.mapping.scroll_docs( -4), { "i", "c" }),
+        ["<C-a>"]     = cmp.mapping.confirm { select = true },
+        ['<Tab>']     = cmp.mapping(function(fallback)
+            if luasnip.jumpable(1) then
+                luasnip.jump(1)
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
+        ['<S-Tab>']   = cmp.mapping(function(fallback)
+            if luasnip.jumpable( -1) then
+                luasnip.jump( -1)
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
+    })
     lsp.setup_nvim_cmp({
         mapping = cmp_mappings,
         sources = {
