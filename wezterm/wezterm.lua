@@ -25,6 +25,29 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     --    }
 end
 
+wezterm.on("SpawnNewWindowInWorkingDirectory", function(window, pane)
+    local current_directory = pane:get_current_working_dir():gsub("file://ky3ow", "") --- Replace this one with your hostname
+    local startup_command = "export wezterm_startup_directory=" .. current_directory .. "&& fish"
+
+    window:perform_action(wezterm.action { SpawnCommandInNewWindow = {
+        args = { "bash", "-c", startup_command }
+    } }, pane)
+end)
+
+wezterm.on("SpawnNewTabInWorkingDirectory", function(window, pane)
+    local current_directory = pane:get_current_working_dir():gsub("file://ky3ow", "") --- Replace this one with your hostname
+    local startup_command = "export wezterm_startup_directory=" .. current_directory .. "&& fish"
+
+    window:perform_action(wezterm.action { SpawnCommandInNewTab = {
+        args = { "bash", "-c", startup_command }
+    } }, pane)
+end)
+
+M.keys = {
+    { key = "n", mods = "ALT", action = wezterm.action { EmitEvent = "SpawnNewWindowInWorkingDirectory" } },
+    { key = "t", mods = "ALT", action = wezterm.action { EmitEvent = "SpawnNewTabInWorkingDirectory" } }
+}
+
 M.color_scheme_dirs = { wezterm.config_dir .. '/custom_themes' }
 M.color_scheme = "terafox"
 M.background = {

@@ -68,8 +68,9 @@ export VISUAL=nvim
 
 switch (uname)
     case Linux
-        eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-#        bass source ~/dotfiles/wezterm.sh
+    eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    #        bass source ~/dotfiles/wezterm.sh
+    cd $wezterm_startup_directory
     case Darwin
 end
 
