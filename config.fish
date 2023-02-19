@@ -22,6 +22,7 @@ if status is-interactive
         git checkout $argv[1] && gbcurr && ff
     end
 
+    alias v="nvim"
     alias src='source ~/.config/fish/config.fish'
 
     alias gc='git commit'
