@@ -50,11 +50,6 @@ if status is-interactive
     alias gbc='git branch --show-current | pbcopy'
     alias gbcurr='export B="$(git branch --show-current | cat)"'
 
-#    function nvm
-#        bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
-#    end
-    #    nvm use node
-
     function starship_transient_prompt_func
         starship module character
     end
