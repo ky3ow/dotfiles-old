@@ -12,7 +12,11 @@ if status is-interactive
         end
     end
 
-    function checkout -w "git checkout"
+    function checkout --wraps "git checkout"
+        git checkout $argv[1] && gbcurr
+    end
+
+    function checkout_ff --wraps "git checkout"
         git checkout $argv[1] && gbcurr && ff
     end
 
@@ -20,35 +24,39 @@ if status is-interactive
 
     alias gc='git commit'
     alias gupd='git commit --amend --no-edit'
-    alias gund='git reset --hard'
 
-    alias gco='checkout $argv'
+    alias gco='checkout'
+    alias gcof='checkout_ff'
 
-    alias ga='git add .'
+    alias ga='git add'
+    alias gp='git push'
+    alias gP='git pull'
 
     alias gst='git status'
 
-    alias gf='git fetch $argv[1]'
-    alias gpr='git remote prune $O'
+    alias gf='git fetch'
     alias ff='gpr && git pull --ff-only'
+    alias gpr='git remote prune $O'
 
-    alias grh='git reset --hard $argv'
-    alias grs='git reset --soft $argv'
+    alias gR='git reset --hard'
+    alias gr='git reset --soft'
 
-    alias gcp='git cherry-pick $argv'
+    alias gcp='git cherry-pick'
     alias gcpc='gcp --continue'
     alias gcpa='gcp --abort'
 
-    alias gre='git rebase $argv'
+    alias gre='git rebase'
     alias grec='gre --continue'
     alias grea='gre --abort'
 
-    alias gm='git merge $argv'
-
+    alias gm='git merge'
     alias gmr='git push -u origin HEAD'
 
     alias gbc='git branch --show-current | pbcopy'
     alias gbcurr='export B="$(git branch --show-current | cat)"'
+
+    set -x EDITOR nvim
+    set -x VISUAL nvim
 
     function starship_transient_prompt_func
         starship module character
@@ -58,13 +66,10 @@ if status is-interactive
 
 end
 
-export EDITOR=nvim
-export VISUAL=nvim
 
 switch (uname)
     case Linux
     eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-    #        bass source ~/dotfiles/wezterm.sh
     cd $wezterm_startup_directory
     case Darwin
 end

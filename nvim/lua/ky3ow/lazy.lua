@@ -79,6 +79,7 @@ lazy.setup({
         build = ':TSUpdate',
     },
     -- Rainbow brackets
+   -- { 'mrjones2014/nvim-ts-rainbow',                 dependencies = { 'nvim-treesitter/nvim-treesitter', } },
     { 'mrjones2014/nvim-ts-rainbow',                 dependencies = { 'nvim-treesitter/nvim-treesitter', } },
     -- Rainbow indents
     { 'lukas-reineke/indent-blankline.nvim',         dependencies = { 'nvim-treesitter/nvim-treesitter', } },
