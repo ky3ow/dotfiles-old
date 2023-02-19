@@ -1,8 +1,10 @@
 if status is-interactive
+    fish_vi_key_bindings
+    bind -M insert \ce accept-autosuggestion
 
-    export O='origin'
-    export B="$(git branch --show-current | cat)"
-    export H='HEAD'
+    set -x O 'origin'
+    set -x B "$(git branch --show-current | cat)"
+    set -x H 'HEAD'
 
     function git --wraps git
         if pwd -P | grep -q "^\/mnt\/c\/*"
