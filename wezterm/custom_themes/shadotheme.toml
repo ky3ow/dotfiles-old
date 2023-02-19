@@ -1,0 +1,37 @@
+[metadata]
+name = "shadotheme"
+author = "Shadorain"
+origin_url = "https://github.com/Shadorain/shadotheme"
+
+[colors]
+foreground = "#e3c7fc"
+background = "#09090d"
+cursor_bg = "#f1c4e0"
+cursor_border = "#f1c4e0"
+cursor_fg = "#523873"
+compose_cursor = "#f1c4e0"
+selection_bg = "#262440"
+selection_fg = "#e3c7fc"
+scrollbar_thumb = "#e6eaea"
+split = "#7b6dc8"
+visual_bell = "#0f1c1e"
+ansi = [
+    "#140a1d",
+    "#B52A5B",
+    "#FF4971",
+    "#8897F4",
+    "#bd93f9",
+    "#E9729D",
+    "#F18FB0",
+    "#f1c4e0",
+]
+brights = [
+    "#a8899c",
+    "#B52A5B",
+    "#FF4971",
+    "#8897F4",
+    "#bd93f9",
+    "#E9729D",
+    "#F18FB0",
+    "#f1c4e0",
+]
