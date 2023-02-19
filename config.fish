@@ -4,13 +4,13 @@ if status is-interactive
     export B="$(git branch --show-current | cat)"
     export H='HEAD'
 
-   function git --wraps git
-    if pwd -P | grep -q "^\/mnt\/c\/*"
-      git.exe $argv
-    else
-      command git $argv
+    function git --wraps git
+        if pwd -P | grep -q "^\/mnt\/c\/*"
+            git.exe $argv
+        else
+            command git $argv
+        end
     end
-   end
 
     function checkout -w "git checkout"
         git checkout $argv[1] && gbcurr && ff
@@ -53,7 +53,6 @@ if status is-interactive
     function nvm
         bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
     end
-
     nvm use node
 
     function starship_transient_prompt_func
@@ -61,6 +60,7 @@ if status is-interactive
     end
     starship init fish | source
     enable_transience
+
 end
 
 export EDITOR=nvim
@@ -69,5 +69,10 @@ export VISUAL=nvim
 switch (uname)
     case Linux
         eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+#        bass source ~/dotfiles/wezterm.sh
     case Darwin
 end
+
+#function osc7_prompt --on-event fish_prompt
+#    wezterm set-working-directory
+#end

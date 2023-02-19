@@ -15,6 +15,14 @@ local terafox_colors = {
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     M.default_prog = { 'wsl' }
+    --    M.default_domain = "WSL:Ubuntu"
+    --    M.wsl_domains = {
+    --        {
+    --            name = 'WSL:Ubuntu',
+    --            distribution = 'Ubuntu',
+    --            default_cwd = '~',
+    --        },
+    --    }
 end
 
 M.color_scheme_dirs = { wezterm.config_dir .. '/custom_themes' }
@@ -75,8 +83,8 @@ M.inactive_pane_hsb = {
     brightness = 0.4,
 }
 
-M.enable_kitty_graphics=true
-M.send_composed_key_when_alt_is_pressed = false
+M.enable_kitty_graphics = true
+M.send_composed_key_when_left_alt_is_pressed = false
 M.use_ime = false
 
 return M
