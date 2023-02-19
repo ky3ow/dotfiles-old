@@ -78,9 +78,10 @@ lazy.setup({
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
     },
-    -- Rainbow brackets
-   -- { 'mrjones2014/nvim-ts-rainbow',                 dependencies = { 'nvim-treesitter/nvim-treesitter', } },
-    { 'mrjones2014/nvim-ts-rainbow',                 dependencies = { 'nvim-treesitter/nvim-treesitter', } },
+    -- Rainbow brackets (Temp using fork with fix)
+    -- { 'mrjones2014/nvim-ts-rainbow',                 dependencies = { 'nvim-treesitter/nvim-treesitter', } },
+    { 'LiadOz/nvim-ts-rainbow', branch="LiadOz/fix-remove-previous-highlights",        dependencies = { 'nvim-treesitter/nvim-treesitter', }
+    },
     -- Rainbow indents
     { 'lukas-reineke/indent-blankline.nvim',         dependencies = { 'nvim-treesitter/nvim-treesitter', } },
     -- Better objects
