@@ -34,7 +34,7 @@ return {
             {
                 source = {
                     File = {
-                        path = wezterm.config_dir .. '/wallpapers/kit.png',
+                        path = wezterm.config_dir .. '/wallpapers/cat_half.png',
                         speed = 1
                     }
                 },

@@ -36,6 +36,5 @@ return {
             { key = "n", mods = "ALT", action = wezterm.action { EmitEvent = "SpawnNewWindowInWorkingDirectory" } })
         table.insert(keys,
             { key = "t", mods = "ALT", action = wezterm.action { EmitEvent = "SpawnNewTabInWorkingDirectory" } })
-        table.insert(keys, {key= "0", action = print('asd')})
     end
 }
