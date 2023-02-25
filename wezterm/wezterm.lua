@@ -15,4 +15,7 @@ end
 M.enable_kitty_graphics = true
 
 configure_theme(M)
+if wezterm.target_triple == "x86_64-apple-darwin" then
+    M.background = nil
+end
 return M
