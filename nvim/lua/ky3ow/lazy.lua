@@ -93,8 +93,9 @@ lazy.setup({
         "windwp/nvim-autopairs",
         config = function()
             local autopairs = require('nvim-autopairs')
-            autopairs.setup { check_ts = true }
-            local ts_conds = require('nvim-autopairs.ts-conds')
+            autopairs.setup {
+                check_ts = true,
+            }
         end,
         dependencies = { 'nvim-treesitter/nvim-treesitter' }
     },
@@ -110,4 +111,3 @@ lazy.setup({
         'jinh0/eyeliner.nvim',
     },
 })
-
