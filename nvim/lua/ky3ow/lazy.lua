@@ -83,14 +83,22 @@ lazy.setup({
     { 'nvim-treesitter/playground',                  dependencies = { 'nvim-treesitter/nvim-treesitter' } },
     -- Rainbow brackets (Temp using fork with fix)
     -- { 'mrjones2014/nvim-ts-rainbow',                 dependencies = { 'nvim-treesitter/nvim-treesitter', } },
-    { 'LiadOz/nvim-ts-rainbow',                      branch = "LiadOz/fix-remove-previous-highlights",           dependencies = { 'nvim-treesitter/nvim-treesitter', } },
+    { 'LiadOz/nvim-ts-rainbow',                      branch = "LiadOz/fix-remove-previous-highlights",     dependencies = { 'nvim-treesitter/nvim-treesitter', } },
     -- Rainbow indents
     { 'lukas-reineke/indent-blankline.nvim',         dependencies = { 'nvim-treesitter/nvim-treesitter', } },
     -- Better objects
     { 'nvim-treesitter/nvim-treesitter-textobjects', dependencies = { 'nvim-treesitter/nvim-treesitter', } },
     -- Autopair brackets and tags
-    { "windwp/nvim-autopairs",                       config = function() require('nvim-autopairs').setup {} end, dependencies = { 'nvim-treesitter/nvim-treesitter' } },
-    { "windwp/nvim-ts-autotag",                      dependencies = { 'nvim-treesitter/nvim-treesitter' } },
+    {
+        "windwp/nvim-autopairs",
+        config = function()
+            local autopairs = require('nvim-autopairs')
+            autopairs.setup { check_ts = true }
+            local ts_conds = require('nvim-autopairs.ts-conds')
+        end,
+        dependencies = { 'nvim-treesitter/nvim-treesitter' }
+    },
+    { "windwp/nvim-ts-autotag", dependencies = { 'nvim-treesitter/nvim-treesitter' } },
 
     -- Pets?? --
     --{
@@ -102,3 +110,4 @@ lazy.setup({
         'jinh0/eyeliner.nvim',
     },
 })
+

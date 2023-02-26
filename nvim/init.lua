@@ -7,3 +7,5 @@ require "ky3ow.treesitter"
 require "ky3ow.indent"
 --require "ky3ow.pets"
 require "ky3ow.eyeliner"
+require "ky3ow.autopair"
+
