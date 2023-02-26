@@ -79,21 +79,44 @@ lazy.setup({
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
     },
+    {
+        'nvim-treesitter/playground',
+        dependencies = { 'nvim-treesitter/nvim-treesitter' }
+    },
     -- Rainbow brackets (Temp using fork with fix)
     -- { 'mrjones2014/nvim-ts-rainbow',                 dependencies = { 'nvim-treesitter/nvim-treesitter', } },
-    { 'LiadOz/nvim-ts-rainbow', branch="LiadOz/fix-remove-previous-highlights",        dependencies = { 'nvim-treesitter/nvim-treesitter', }
-    },
+    { 'LiadOz/nvim-ts-rainbow',                      branch = "LiadOz/fix-remove-previous-highlights",     dependencies = { 'nvim-treesitter/nvim-treesitter', } },
     -- Rainbow indents
     { 'lukas-reineke/indent-blankline.nvim',         dependencies = { 'nvim-treesitter/nvim-treesitter', } },
     -- Better objects
     { 'nvim-treesitter/nvim-treesitter-textobjects', dependencies = { 'nvim-treesitter/nvim-treesitter', } },
     -- Pets?? --
-    {
-        "giusgad/pets.nvim",
-        dependencies = { "MunifTanjim/nui.nvim", "edluffy/hologram.nvim" },
-    },
+    --{
+    --    "giusgad/pets.nvim",
+    --    dependencies = { "MunifTanjim/nui.nvim", "edluffy/hologram.nvim" },
+    --},
     -- Show first letters on find --
     {
         'jinh0/eyeliner.nvim',
+    },
+    -- AutoPair brackets --
+    {
+        "windwp/nvim-autopairs",
+        config = function()
+            local autopairs = require("nvim-autopairs")
+            --            local Rule = require('nvim-autopairs.rule')
+            --            local t = require('nvim-autopairs.ts-conds')
+            --
+            --            local default = { 'string', 'comment', 'template_string' }
+            autopairs.setup {
+                check_ts = true,
+                enable_check_bracket_line = false,
+            }
+            --
+            --            autopairs.add_rules({
+            --                Rule('(', ')')
+            --                :with_pair(t.is_not_ts_node({ 'string' }))
+            --            })
+        end
     }
 })
