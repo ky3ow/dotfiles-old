@@ -19,6 +19,7 @@ if not status_ok then
 end
 
 lazy.setup({
+
     --** Best color scheme **--
     {
         "volodymyr-havryliuk165/shadotheme",
@@ -28,9 +29,11 @@ lazy.setup({
             vim.cmd('colorscheme shado')
         end
     },
+
     {
         "nvim-lua/popup.nvim",
     },
+
     --** Lsp + autocomplete **--
     {
         'VonHeikemen/lsp-zero.nvim',
@@ -53,6 +56,7 @@ lazy.setup({
             { 'rafamadriz/friendly-snippets' },
         }
     },
+
     --** File finder **--
     {
         'nvim-telescope/telescope.nvim',
@@ -74,6 +78,7 @@ lazy.setup({
             return vim.fn.executable 'make' == 1
         end,
     },
+
     --** Tree sitter(syntax highlight) **--
     {
         'nvim-treesitter/nvim-treesitter',
@@ -106,6 +111,7 @@ lazy.setup({
     --    "giusgad/pets.nvim",
     --    dependencies = { "MunifTanjim/nui.nvim", "edluffy/hologram.nvim" },
     --},
+
     -- Show first letters on find --
     {
         'jinh0/eyeliner.nvim',
