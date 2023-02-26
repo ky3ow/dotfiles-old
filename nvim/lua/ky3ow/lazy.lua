@@ -100,6 +100,8 @@ lazy.setup({
             local autopairs = require('nvim-autopairs')
             autopairs.setup {
                 check_ts = true,
+                disable_in_visualblock = true,
+                enable_bracket_in_quote = false,
             }
         end,
         dependencies = { 'nvim-treesitter/nvim-treesitter' }
@@ -117,4 +119,3 @@ lazy.setup({
         'jinh0/eyeliner.nvim',
     },
 })
-

@@ -1,5 +1,9 @@
 local autopairs = require('nvim-autopairs')
-local ts_conds = require('nvim-autopairs.ts-conds')
+local R = require('nvim-autopairs.rule')
+local T = require('nvim-autopairs.ts-conds')
+local _is = T.is_ts_node
+local _isnt = T.is_not_ts_node
+
 
 local function toggle()
     if autopairs.state.disabled then
