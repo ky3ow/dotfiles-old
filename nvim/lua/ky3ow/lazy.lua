@@ -117,3 +117,4 @@ lazy.setup({
         'jinh0/eyeliner.nvim',
     },
 })
+
