@@ -19,7 +19,7 @@ if not status_ok then
 end
 
 lazy.setup({
-    -- Best color scheme --
+    --** Best color scheme **--
     {
         "volodymyr-havryliuk165/shadotheme",
         lazy = false,
@@ -31,7 +31,7 @@ lazy.setup({
     {
         "nvim-lua/popup.nvim",
     },
-    -- Lsp + autocomplete --
+    --** Lsp + autocomplete **--
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
@@ -53,7 +53,7 @@ lazy.setup({
             { 'rafamadriz/friendly-snippets' },
         }
     },
-    -- File finder --
+    --** File finder **--
     {
         'nvim-telescope/telescope.nvim',
         version = '0.1.1',
@@ -74,15 +74,13 @@ lazy.setup({
             return vim.fn.executable 'make' == 1
         end,
     },
-    -- Tree sitter(syntax highlight) --
+    --** Tree sitter(syntax highlight) **--
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
     },
-    {
-        'nvim-treesitter/playground',
-        dependencies = { 'nvim-treesitter/nvim-treesitter' }
-    },
+    --|> Treesitter plugins <|--
+    { 'nvim-treesitter/playground',                  dependencies = { 'nvim-treesitter/nvim-treesitter' } },
     -- Rainbow brackets (Temp using fork with fix)
     -- { 'mrjones2014/nvim-ts-rainbow',                 dependencies = { 'nvim-treesitter/nvim-treesitter', } },
     { 'LiadOz/nvim-ts-rainbow',                      branch = "LiadOz/fix-remove-previous-highlights",     dependencies = { 'nvim-treesitter/nvim-treesitter', } },
@@ -90,6 +88,10 @@ lazy.setup({
     { 'lukas-reineke/indent-blankline.nvim',         dependencies = { 'nvim-treesitter/nvim-treesitter', } },
     -- Better objects
     { 'nvim-treesitter/nvim-treesitter-textobjects', dependencies = { 'nvim-treesitter/nvim-treesitter', } },
+    -- Autopair brackets and tags
+    { "windwp/nvim-autopairs",                       dependencies = { 'nvim-treesitter/nvim-treesitter' } },
+    { "windwp/nvim-ts-autotag",                      dependencies = { 'nvim-treesitter/nvim-treesitter' } },
+
     -- Pets?? --
     --{
     --    "giusgad/pets.nvim",
@@ -99,24 +101,4 @@ lazy.setup({
     {
         'jinh0/eyeliner.nvim',
     },
-    -- AutoPair brackets --
-    {
-        "windwp/nvim-autopairs",
-        config = function()
-            local autopairs = require("nvim-autopairs")
-            --            local Rule = require('nvim-autopairs.rule')
-            --            local t = require('nvim-autopairs.ts-conds')
-            --
-            --            local default = { 'string', 'comment', 'template_string' }
-            autopairs.setup {
-                check_ts = true,
-                enable_check_bracket_line = false,
-            }
-            --
-            --            autopairs.add_rules({
-            --                Rule('(', ')')
-            --                :with_pair(t.is_not_ts_node({ 'string' }))
-            --            })
-        end
-    }
 })
