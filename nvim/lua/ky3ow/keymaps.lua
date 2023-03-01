@@ -43,8 +43,8 @@ vim.keymap.set("n", "n", "nzzzv", opts)
 vim.keymap.set("n", "N", "Nzzzv", opts)
 
 -- Navigate buffers --
-vim.keymap.set("n", "<C-l>", ":bnext<CR>", opts)
-vim.keymap.set("n", "<C-h>", ":bprevious<CR>", opts)
+vim.keymap.set("n", "]b", ":bnext<CR>", opts)
+vim.keymap.set("n", "[b", ":bprevious<CR>", opts)
 
 -- Haha hehe~ --
 vim.keymap.set("i", "<C-c>", "<Esc>", opts)

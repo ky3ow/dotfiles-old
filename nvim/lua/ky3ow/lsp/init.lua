@@ -34,11 +34,10 @@ setup_competion(lsp)
 -- Lsp keybindings --
 lsp.on_attach(function(_, bufnr)
     local opts = { buffer = bufnr, remap = false, silent = true }
-
     vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
     vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, opts)
-    vim.keymap.set("n", "gj", function() vim.diagnostic.goto_next() end, opts)
-    vim.keymap.set("n", "gk", function() vim.diagnostic.goto_prev() end, opts)
+    vim.keymap.set("n", "gn", function() vim.diagnostic.goto_next() end, opts)
+    vim.keymap.set("n", "gp", function() vim.diagnostic.goto_prev() end, opts)
     vim.keymap.set("n", "<leader>la", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "<leader>lr", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("", "<leader>lf", function() vim.lsp.buf.format({ async = true }) end, opts)

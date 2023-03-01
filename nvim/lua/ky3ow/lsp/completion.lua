@@ -38,8 +38,8 @@ M.setup = function(lsp)
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
     local cmp_mappings = lsp.defaults.cmp_mappings({
         ["<CR>"]      = cmp.config.disable,
-        ["<C-k>"]     = cmp.mapping.select_prev_item(cmp_select),
-        ["<C-j>"]     = cmp.mapping.select_next_item(cmp_select),
+        ["<C-p>"]     = cmp.mapping.select_prev_item(cmp_select),
+        ["<C-n>"]     = cmp.mapping.select_next_item(cmp_select),
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-d>"]     = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
         ["<C-u>"]     = cmp.mapping(cmp.mapping.scroll_docs( -4), { "i", "c" }),
