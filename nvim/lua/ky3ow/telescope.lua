@@ -28,8 +28,8 @@ telescope.setup({
         mappings = {
             i = {
                 ['<esc>'] = actions.close,
-                ['<C-j>'] = actions.move_selection_next,
-                ['<C-k>'] = actions.move_selection_previous,
+                ['<C-n>'] = actions.move_selection_next,
+                ['<C-p>'] = actions.move_selection_previous,
                 ['<Down>'] = actions.cycle_history_next,
                 ['<Up>'] = actions.cycle_history_prev,
             },
