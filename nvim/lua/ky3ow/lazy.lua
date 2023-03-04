@@ -129,4 +129,8 @@ lazy.setup({
     {
         'jinh0/eyeliner.nvim',
     },
+    --** Colors **--
+    {
+        'uga-rosa/ccc.nvim'
+    },
 })
