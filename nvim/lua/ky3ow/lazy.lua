@@ -10,7 +10,6 @@ if not vim.loop.fs_stat(lazypath) then
     })
 end
 vim.opt.rtp:prepend(lazypath)
-
 -- Safe load --
 local status_ok, lazy = pcall(require, "lazy")
 if not status_ok then
@@ -21,12 +20,25 @@ end
 lazy.setup({
 
     --** Best color scheme **--
+    --{
+    --    "volodymyr-havryliuk165/shadotheme",
+    --    lazy = false,
+    --    priority = 1000,
+    --    config = function()
+    --        vim.cmd('colorscheme shado')
+    --    end
+    --},
     {
-        "volodymyr-havryliuk165/shadotheme",
+        "EdenEast/nightfox.nvim",
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd('colorscheme shado')
+            require('nightfox').setup({
+                options = {
+                    transparent = true,
+                }
+            })
+            vim.cmd('colorscheme duskfox')
         end
     },
 
@@ -86,9 +98,8 @@ lazy.setup({
     },
     --|> Treesitter plugins <|--
     { 'nvim-treesitter/playground',                  dependencies = { 'nvim-treesitter/nvim-treesitter' } },
-    -- Rainbow brackets (Temp using fork with fix)
-    -- { 'mrjones2014/nvim-ts-rainbow',                 dependencies = { 'nvim-treesitter/nvim-treesitter', } },
-    { 'LiadOz/nvim-ts-rainbow',                      branch = "LiadOz/fix-remove-previous-highlights",     dependencies = { 'nvim-treesitter/nvim-treesitter', } },
+    -- Rainbow brackets
+    { 'mrjones2014/nvim-ts-rainbow',                 dependencies = { 'nvim-treesitter/nvim-treesitter', } },
     -- Rainbow indents
     { 'lukas-reineke/indent-blankline.nvim',         dependencies = { 'nvim-treesitter/nvim-treesitter', } },
     -- Better objects

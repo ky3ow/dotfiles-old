@@ -1,35 +1,45 @@
 local wezterm = require('wezterm')
 
-local terafox_colors = {
-    base = "#0B1314",
-    green = "#7AA4A1",
-    dark_green = "#152528",
-    pink = "#D38D97",
-    dark_pink = "#AD5C7C",
-    orange = "#FDA47F",
-    red = "#E85C51",
-    white = "CBD9D8",
-    blue = "#73A3B7",
-    light_blue = "#AFD4DE",
+local themes = {
+    --
+
+    terafox_colors = {
+        base = "#0B1314",
+        inactive_tab_edge = "#7AA4A1",
+        main_bg = "#152528",
+        active_tab_fg = "#D38D97",
+        hover_fg = "#AD5C7C",
+        inactive_fg = "CBD9D8",
+    },
+    --
+
+    shadotheme = {
+        base = "#140a1d",
+        inactive_tab_edge = "#F18FB0",
+        main_bg = "#09090d",
+        active_tab_fg = "#E9729D",
+        hover_fg = "#B52A5B",
+        inactive_fg = "#e3c7fc",
+    },
+    --
+
+    duskfox_colors = {
+        base = "#020109",
+        inactive_tab_edge = "#393552",
+        main_bg = "#09090d",
+        active_tab_fg = "#f6c177",
+        hover_fg = "#E9729D",
+        inactive_fg = "#9B7FBD",
+    }
 }
 
-local shadotheme_colors = {
-    base = "#140a1d",
-    green = "#F18FB0",
-    dark_green = "#09090d",
-    pink = "#E9729D",
-    dark_pink = "#B52A5B",
-    orange = "#FDA47F",
-    red = "#E85C51",
-    white = "#e3c7fc",
-    blue = "#73A3B7",
-    light_blue = "#AFD4DE",
-}
+
+local theme = themes.duskfox_colors
 
 return {
     configure = function(M)
         M.color_scheme_dirs = { wezterm.config_dir .. '/custom_themes' }
-        M.color_scheme = "shadotheme"
+        M.color_scheme = "my_duskfox"
         M.background = {
             {
                 source = {
@@ -46,38 +56,38 @@ return {
             },
         }
         M.window_frame = {
-            inactive_titlebar_bg = shadotheme_colors.dark_green,
-            active_titlebar_bg = shadotheme_colors.base,
+            inactive_titlebar_bg = theme.main_bg,
+            active_titlebar_bg = theme.base,
         }
         M.window_decorations = "RESIZE"
         M.colors = {
             tab_bar = {
 
-                inactive_tab_edge = shadotheme_colors.green,
+                inactive_tab_edge = theme.inactive_tab_edge,
 
                 active_tab = {
-                    bg_color = shadotheme_colors.dark_green,
-                    fg_color = shadotheme_colors.pink,
+                    bg_color = theme.main_bg,
+                    fg_color = theme.active_tab_fg,
                 },
 
                 inactive_tab = {
-                    bg_color = shadotheme_colors.dark_green,
-                    fg_color = shadotheme_colors.white,
+                    bg_color = theme.main_bg,
+                    fg_color = theme.inactive_fg,
                 },
 
                 inactive_tab_hover = {
-                    bg_color = shadotheme_colors.base,
-                    fg_color = shadotheme_colors.dark_pink,
+                    bg_color = theme.base,
+                    fg_color = theme.hover_fg,
                 },
 
                 new_tab = {
-                    bg_color = shadotheme_colors.dark_green,
-                    fg_color = shadotheme_colors.white,
+                    bg_color = theme.main_bg,
+                    fg_color = theme.inactive_fg,
                 },
 
                 new_tab_hover = {
-                    bg_color = shadotheme_colors.base,
-                    fg_color = shadotheme_colors.dark_pink,
+                    bg_color = theme.base,
+                    fg_color = theme.hover_fg,
                 }
 
             },
