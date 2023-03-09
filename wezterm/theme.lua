@@ -27,8 +27,8 @@ local themes = {
         base = "#020109",
         inactive_tab_edge = "#393552",
         main_bg = "#09090d",
-        active_tab_fg = "#f6c177",
-        hover_fg = "#E9729D",
+        active_tab_fg = "#E9729D",
+        hover_fg = "#f6c177",
         inactive_fg = "#9B7FBD",
     }
 }
