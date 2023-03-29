@@ -10,7 +10,7 @@ end
 if wezterm.target_triple == "x86_64-apple-darwin" then
     require('mac').configure(M)
 end
-
+-- Comment
 -- Enable cool image rendering protocol --
 M.enable_kitty_graphics = true
 
