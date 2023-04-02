@@ -39,7 +39,8 @@ local theme = themes.duskfox_colors
 return {
     configure = function(M)
         M.color_scheme_dirs = { wezterm.config_dir .. '/custom_themes' }
-        M.color_scheme = "my_duskfox"
+--        M.color_scheme = "my_duskfox"
+        M.color_scheme = "duskfox"
         M.background = {
             {
                 source = {
