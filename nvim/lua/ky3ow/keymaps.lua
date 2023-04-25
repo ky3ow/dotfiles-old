@@ -15,26 +15,23 @@ vim.g.maplocalleader = " "
 -- command = c
 
 -- Window nav --
-vim.keymap.set("n", "<A-h>", "<C-w>h", opts)
-vim.keymap.set("n", "<A-j>", "<C-w>j", opts)
-vim.keymap.set("n", "<A-k>", "<C-w>k", opts)
-vim.keymap.set("n", "<A-l>", "<C-w>l", opts)
-vim.keymap.set("n", "<A-c>", "<C-w>c", opts)
-vim.keymap.set("n", "<A-v>", "<C-w>v", opts)
-vim.keymap.set("n", "<A-s>", "<C-w>s", opts)
+vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
+vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
+vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
+vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows --
-vim.keymap.set("n", "<A-Up>", ":resize +2<CR>", opts)
-vim.keymap.set("n", "<A-Down>", ":resize -2<CR>", opts)
-vim.keymap.set("n", "<A-Left>", ":vertical resize +2<CR>", opts)
-vim.keymap.set("n", "<A-Right>", ":vertical resize -2<CR>", opts)
+vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", opts)
+vim.keymap.set("n", "<C-Down>", ":resize -2<CR>", opts)
+vim.keymap.set("n", "<C-Left>", ":vertical resize +2<CR>", opts)
+vim.keymap.set("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 
 -- Better line start/end --
 vim.keymap.set("", "H", "^", { silent = true })
 vim.keymap.set("", "L", "$", { silent = true })
 
 -- Explore tree --
-vim.keymap.set("n", "<leader>e", ":Lex 30<CR>", opts)
+vim.keymap.set("n", "<leader>e", ":Ex <CR>", opts)
 
 -- Center when jumping --
 vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
