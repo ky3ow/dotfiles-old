@@ -39,8 +39,8 @@ local theme = themes.duskfox_colors
 return {
     configure = function(M)
         M.color_scheme_dirs = { wezterm.config_dir .. '/custom_themes' }
---        M.color_scheme = "my_duskfox"
         M.color_scheme = "duskfox"
+        M.window_background_opacity = 1.0
         M.background = {
             {
                 source = {
@@ -54,7 +54,7 @@ return {
                 hsb = {
                     brightness = 0.05,
                 },
-            },
+            }
         }
         M.window_frame = {
             inactive_titlebar_bg = theme.main_bg,
