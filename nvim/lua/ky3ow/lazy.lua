@@ -20,14 +20,6 @@ end
 lazy.setup({
 
     --** Best color scheme **--
-    --{
-    --    "volodymyr-havryliuk165/shadotheme",
-    --    lazy = false,
-    --    priority = 1000,
-    --    config = function()
-    --        vim.cmd('colorscheme shado')
-    --    end
-    --},
     {
         "EdenEast/nightfox.nvim",
         lazy = false,
@@ -125,7 +117,7 @@ lazy.setup({
     --    dependencies = { "MunifTanjim/nui.nvim", "edluffy/hologram.nvim" },
     --},
 
-    -- Show first letters on find --
+    --** Show first letters on find **--
     {
         'jinh0/eyeliner.nvim',
     },

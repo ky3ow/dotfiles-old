@@ -47,9 +47,6 @@ vim.keymap.set("n", "[b", ":bprevious<CR>", opts)
 vim.keymap.set("n", "]t", "gt", opts)
 vim.keymap.set("n", "[t", "gT", opts)
 
--- Haha hehe~ --
-vim.keymap.set("i", "<C-c>", "<Esc>", opts)
-
 -- Stay in indent mode --
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)

@@ -2,31 +2,32 @@ local M = {}
 
 local kind_icons = {
     Text = "",
-    Method = "m",
+    Method = "",
     Function = "",
-    Constructor = "",
-    Field = "",
-    Variable = "",
-    Class = "",
+    Constructor = "",
+    Field = "ﰠ",
+    Variable = "",
+    Class = "ﴯ",
     Interface = "",
     Module = "",
-    Property = "",
-    Unit = "",
+    Property = "ﰠ",
+    Unit = "塞",
     Value = "",
     Enum = "",
     Keyword = "",
-    Snippet = "",
+    Snippet = "",
     Color = "",
     File = "",
-    Reference = "",
+    Reference = "",
     Folder = "",
     EnumMember = "",
-    Constant = "",
-    Struct = "",
+    Constant = "",
+    Struct = "פּ",
     Event = "",
     Operator = "",
-    TypeParameter = "",
+    TypeParameter = ""
 }
+
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
     return
@@ -44,14 +45,14 @@ M.setup = function(lsp)
         ["<C-d>"]     = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
         ["<C-u>"]     = cmp.mapping(cmp.mapping.scroll_docs( -4), { "i", "c" }),
         ["<C-a>"]     = cmp.mapping.confirm { select = true },
-        ['<Tab>']     = cmp.mapping(function(fallback)
+        ["<Tab>"]     = cmp.mapping(function(fallback)
             if luasnip.jumpable(1) then
                 luasnip.jump(1)
             else
                 fallback()
             end
         end, { 'i', 's' }),
-        ['<S-Tab>']   = cmp.mapping(function(fallback)
+        ["<S-Tab>"]   = cmp.mapping(function(fallback)
             if luasnip.jumpable( -1) then
                 luasnip.jump( -1)
             else
@@ -88,8 +89,8 @@ end
 -- To make autopair brackets --
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on(
-  'confirm_done',
-  cmp_autopairs.on_confirm_done()
+    'confirm_done',
+    cmp_autopairs.on_confirm_done()
 )
 
 return M
