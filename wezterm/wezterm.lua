@@ -33,9 +33,11 @@ config.keys = {
     }
 }
 
+config.unix_domains = {}
+
 -- WSL only --
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-    require('windows').configure_wsl(config)
+    table.insert(config.unix_domains, { name = 'wsl', serve_command = { 'wsl', 'wezterm-mux-server', '--daemonize' } })
 end
 
 -- ShitBook --
@@ -45,4 +47,6 @@ end
 
 -- Enable cool image rendering protocol --
 config.enable_kitty_graphics = true
+--table.insert(config.unix_domains, { name = 'unix' })
+
 return config
