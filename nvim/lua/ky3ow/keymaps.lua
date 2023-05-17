@@ -56,6 +56,10 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
 vim.keymap.set("x", "J", ":m '>+1<CR>gv=gv", opts)
 vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv", opts)
+vim.keymap.set("v", "<S-Down>", ":m '>+1<CR>gv=gv", opts)
+vim.keymap.set("v", "<S-Up>", ":m '<-2<CR>gv=gv", opts)
+vim.keymap.set("x", "<S-Down>", ":m '>+1<CR>gv=gv", opts)
+vim.keymap.set("x", "<S-Up>", ":m '<-2<CR>gv=gv", opts)
 
 -- System register --
 vim.keymap.set("n", "<leader>y", '"+y', opts)
@@ -74,3 +78,7 @@ vim.keymap.set("x", "<leader>d", '"_d', opts)
 -- Substitute --
 vim.keymap.set("n", "<leader>*", ":%s/<C-r><C-w>/", opts)
 vim.keymap.set("n", "<leader>_", ":%s/\\<<C-r><C-w>\\>/", opts)
+
+-- For split keyboard sake --
+vim.keymap.set("n", "<S-Down>", "J", opts)
+
