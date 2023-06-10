@@ -2,7 +2,7 @@
 @import "icons/extension-icons.css";
 @import "window-controls/no-wc-without-tabline.css";
 @import "hide-tabline.css";
-@import "userChrome-static.css";
+@import "userChrome-hover.css";
 :root {
   --ap-radius-s: 4px;
   --ap-radius-m: 8px;
