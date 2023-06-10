@@ -30,16 +30,17 @@ local themes = {
         active_tab_fg = "#E9729D",
         hover_fg = "#f6c177",
         inactive_fg = "#9B7FBD",
-    }
+    },
+    --
 }
 
 
-local theme = themes.duskfox_colors
+--local theme = themes.duskfox_colors
 
 return {
     configure = function(M)
         M.color_scheme_dirs = { wezterm.config_dir .. '/custom_themes' }
-        M.color_scheme = "rose-pine"
+--        M.color_scheme = "rose-pine"
         M.window_background_opacity = 1.0
         M.background = {
             {
@@ -56,46 +57,13 @@ return {
                 },
             }
         }
-        M.window_frame = {
-            inactive_titlebar_bg = theme.main_bg,
-            active_titlebar_bg = theme.base,
-        }
         M.window_decorations = "RESIZE"
-        M.colors = {
-            tab_bar = {
-
-                inactive_tab_edge = theme.inactive_tab_edge,
-
-                active_tab = {
-                    bg_color = theme.main_bg,
-                    fg_color = theme.active_tab_fg,
-                },
-
-                inactive_tab = {
-                    bg_color = theme.main_bg,
-                    fg_color = theme.inactive_fg,
-                },
-
-                inactive_tab_hover = {
-                    bg_color = theme.base,
-                    fg_color = theme.hover_fg,
-                },
-
-                new_tab = {
-                    bg_color = theme.main_bg,
-                    fg_color = theme.inactive_fg,
-                },
-
-                new_tab_hover = {
-                    bg_color = theme.base,
-                    fg_color = theme.hover_fg,
-                }
-
-            },
-        }
 
         M.inactive_pane_hsb = {
             brightness = 0.4,
         }
+
+        M.colors = require('lua/rose-pine').colors()
+        M.window_frame = require('lua/rose-pine').window_frame()
     end
 }

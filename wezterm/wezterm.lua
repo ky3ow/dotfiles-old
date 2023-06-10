@@ -2,7 +2,7 @@ local config = { keys = {} }
 local wezterm = require('wezterm')
 local act = wezterm.action
 -- Theme --
-require('theme').configure(config)
+require('lua/theme').configure(config)
 
 -- Keys --
 config.keys = {
@@ -42,7 +42,7 @@ end
 
 -- ShitBook --
 if wezterm.target_triple == "x86_64-apple-darwin" then
-    require('mac').configure_mac(config)
+    require('lua/mac').configure_mac(config)
 end
 
 -- Enable cool image rendering protocol --
