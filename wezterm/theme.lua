@@ -39,7 +39,7 @@ local theme = themes.duskfox_colors
 return {
     configure = function(M)
         M.color_scheme_dirs = { wezterm.config_dir .. '/custom_themes' }
-        M.color_scheme = "duskfox"
+        M.color_scheme = "rose-pine"
         M.window_background_opacity = 1.0
         M.background = {
             {

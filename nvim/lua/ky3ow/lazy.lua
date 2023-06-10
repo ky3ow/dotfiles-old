@@ -21,16 +21,18 @@ lazy.setup({
 
     --** Best color scheme **--
     {
-        "EdenEast/nightfox.nvim",
+        "rose-pine/neovim",
+        name = "rose-pine",
         lazy = false,
         priority = 1000,
         config = function()
-            require('nightfox').setup({
-                options = {
-                    transparent = true,
-                }
+            require('rose-pine').setup({
+                variant = 'auto',
+                dark_variant = 'main',
+                disable_italics = true,
+--                disable_background = true,
             })
-            vim.cmd('colorscheme duskfox')
+            vim.cmd('colorscheme rose-pine')
         end
     },
 
