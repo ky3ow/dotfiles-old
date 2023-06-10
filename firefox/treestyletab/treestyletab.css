@@ -154,7 +154,7 @@ for some information on how to change these variables...
 
 :root,
 #background {
-  background: var(--dark-base) !important;
+  background: rgb(16, 14, 27) !important;
 }
 
 #all-tabs {
