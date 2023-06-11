@@ -740,3 +740,7 @@
         padding-inline-end: 0.5px !important;
     }
 }
+
+.searchbar-search-button {
+    padding-left: 1em;
+}
