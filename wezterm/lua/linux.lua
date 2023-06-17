@@ -1,6 +1,5 @@
 return {
   configure_linux = function(M) 
-     M.background = {
-     }
+    M.background = {}
   end
 }
