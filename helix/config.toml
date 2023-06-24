@@ -1,0 +1,25 @@
+theme = "rose_pine" 
+
+[editor]
+line-number = "relative"
+shell = ["nu", "-c"]
+cursorline = true
+bufferline = "always"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "block"
+  
+[editor.statusline]
+left = ["mode", "spinner", "selections"]
+right = ["diagnostics", "position", "file-encoding",  "file-line-ending", "file-type", "file-name"]
+separator = "|" 
+mode.normal = "-- NORMAL --"
+mode.insert = "-- INSERT --"
+mode.select = "-- SELECT --"
+
+[editor.indent-guides]
+render = true
+character = "▏" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1                      
