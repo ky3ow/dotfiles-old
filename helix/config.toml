@@ -1,5 +1,4 @@
-theme = "rose_pine" 
-
+theme = "catpuccin_mocha"  
 [editor]
 line-number = "relative"
 shell = ["nu", "-c"]
@@ -26,3 +25,11 @@ skip-levels = 1
 
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
+
+[keys.normal.z]
+d = ["half_page_down", "align_view_center"]
+u = ["half_page_up", "align_view_center"]
+
+[keys.normal.Z]
+d = ["half_page_down", "align_view_center"]
+u = ["half_page_up", "align_view_center"]
