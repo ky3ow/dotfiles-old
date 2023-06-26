@@ -1,11 +1,11 @@
 # Nushell Config File
 #
 # version = 0.78.0
-ssh-agent -c | lines | first 2 | parse "setenv {name} {value};" | transpose -i -r -d | load-env
-ssh-add ~/.ssh/primary_key
+# ssh-agent -c | lines | first 2 | parse "setenv {name} {value};" | transpose -i -r -d | load-env
+# ssh-add ~/.ssh/primary_key
 
-alias ll = ls -l
-alias gui = gitui
+# alias ll = ls -l
+# alias gui = gitui
 
 # For more information on defining custom themes, see
 # https://www.nushell.sh/book/coloring_and_theming.html
