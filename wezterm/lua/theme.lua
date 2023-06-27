@@ -40,7 +40,7 @@ local themes = {
 return {
     configure = function(M)
         M.color_scheme_dirs = { wezterm.config_dir .. '/custom_themes' }
---        M.color_scheme = "rose-pine"
+        M.color_scheme = "duskfox"
         M.window_background_opacity = 1.0
         M.background = {
             {
@@ -63,7 +63,7 @@ return {
             brightness = 0.4,
         }
 
-        M.colors = require('lua/rose-pine').colors()
-        M.window_frame = require('lua/rose-pine').window_frame()
+        -- M.colors = require('lua/rose-pine').colors()
+        -- M.window_frame = require('lua/rose-pine').window_frame()
     end
 }

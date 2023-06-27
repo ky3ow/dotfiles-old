@@ -8,4 +8,4 @@ require "ky3ow.indent"
 --require "ky3ow.pets"
 require "ky3ow.eyeliner"
 require "ky3ow.autopair"
-
+require "ky3ow.nightfox"

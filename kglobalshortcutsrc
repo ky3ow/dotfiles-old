@@ -29,10 +29,10 @@ increase_master_win_count=none,Meta+],Increase Master Area Window Count
 increase_window_height=none,Meta+Ctrl+J,Increase Window Height
 increase_window_width=none,Meta+Ctrl+L,Increase Window Width
 move_window_to_bottom_pos=Meta+Shift+Down\tMeta+Shift+J,Meta+Shift+J,Move Window Down
-move_window_to_left_pos=\tMeta+Shift+H,Meta+Shift+H,Move Window Left
+move_window_to_left_pos=Meta+Shift+H,Meta+Shift+H,Move Window Left
 move_window_to_next_pos=none,,Move Window to the Next Position
 move_window_to_prev_pos=none,,Move Window to the Previous Position
-move_window_to_right_pos=\tMeta+Shift+L,Meta+Shift+L,Move Window Right
+move_window_to_right_pos=Meta+Shift+L,Meta+Shift+L,Move Window Right
 move_window_to_upper_pos=Meta+Shift+K\tMeta+Shift+Up,Meta+Shift+K,Move Window Up
 next_layout=Meta+\\\\,Meta+\\\\,Switch to the Next Layout
 prev_layout=Meta+|,Meta+|,Switch to the Previous Layout
@@ -262,6 +262,12 @@ _launch=Meta+E,Meta+E,Dolphin
 [org.kde.kcalc.desktop]
 _k_friendly_name=KCalc
 _launch=Launch (1),Launch (1),KCalc
+
+[org.kde.konsole.desktop]
+NewTab=none,none,Open a New Tab
+NewWindow=none,none,Open a New Window
+_k_friendly_name=Konsole
+_launch=Ctrl+Alt+T,Ctrl+Alt+T,Konsole
 
 [org.kde.krunner.desktop]
 RunClipboard=Alt+Shift+F2,Alt+Shift+F2,Run command on clipboard contents
