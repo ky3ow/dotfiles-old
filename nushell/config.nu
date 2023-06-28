@@ -180,131 +180,94 @@ let light_theme = {
     shape_variable: purple
 }
 
-let duskfox_theme = {
-   binary: "#ea9a97"
-   block: "#cdcbe0"
-   bool: "#f0a4a2"
-   cellpath: "#e0def4"
-   date: "#a3be8c"
-   duration: "#a3be8c"
-   filesize: "#ea9a97"
-   float: "#ea9a97"
-   int: "#ea9a97"
-   list: "#cdcbe0"
-   nothing: "#e0def4"
-   range: "#e0def4"
-   record: "#e0def4"
-   string: "#a3be8c"
+let love = "#eb6f92"
+let text = "#e0def4"
+let gold = "#f6c177"
+let rose = "#ebbcba"
+let pine = "#31748f"
+let foam = "#9ccfd8"
+let iris = "#c4a7e7"
 
-   leading_trailing_space_bg: "#373354"
-   header: "#cdcbe0"
-   empty: "#569fba"
-   row_index: "#6e6a86"
-   hints: "#6e6a86"
-   separator: "#817c9c"
+let rose_pine = {
+    # color for nushell primitives
+    separator: $text
+    leading_trailing_space_bg: { attr: n } # no fg, no bg, attr none effectively turns this off
+    header: $pine
+    empty: $foam
+    # Closures can be used to choose colors for specific values.
+    # The value (in this case, a bool) is piped into the closure.
+    bool: {|| if $in { '#ebbcba' } else { '#908caa' } }
+    int: $gold
+    filesize: {|e|
+      if $e == 0b {
+        '#e0def4'
+      } else if $e < 1mb {
+        '#b9dde3'
+      } else { '#9ccfd8' }
+    }
+    duration: $gold 
+    date: {|| (date now) - $in |
+      if $in < 1hr {
+        $rose
+      } else if $in < 6hr {
+        $rose
+      } else if $in < 1day {
+        $gold
+      } else if $in < 1wk {
+        $foam
+      } else if $in < 6wk {
+        $iris
+      } else if $in < 52wk {
+        $pine
+      } else { "#6e6a86" }
+    }    
+    range: $text
+    float: $text
+    string: $gold
+    nothing: $text
+    binary: $text
+    cellpath: $text
+    row_index: $pine
+    record: $text
+    list: $text
+    block: $text
+    hints: "#6e6a86"
 
-   shape_block: "#cdcbe0"
-   shape_bool: "#f0a4a2"
-   shape_external: "#c4a7e7"
-   shape_externalarg: "#e0def4"
-   shape_filepath: "#e0def4"
-   shape_flag: "#9ccfd8"
-   shape_float: "#ea9a97"
-   shape_globpattern: "#f9cb8c"
-   shape_int: "#ea9a97"
-   shape_internalcall: "#c4a7e7"
-   shape_list: "#cdcbe0"
-   shape_literal: "#a3be8c"
-   shape_nothing: "#a6dae3"
-   shape_operator: "#cdcbe0"
-   shape_record: "#cdcbe0"
-   shape_string: "#a3be8c"
-   shape_string_interpolation: "#f9cb8c"
-   shape_table: "#cdcbe0"
-   shape_variable: "#e0def4"
+    shape_and: $rose
+    shape_binary: $rose
+    shape_bool: $rose
+    shape_int: { fg: $rose, attr: b }
+    shape_string: $gold
+    shape_block: { fg: $foam, attr: b }
+    shape_custom: $pine
+    shape_datetime: $gold 
+    shape_directory: "#b9dde3"
+    shape_external: "#b9dde3"
+    shape_externalarg: { fg: $pine, attr: b }
+    shape_filepath: "#b9dde3"
+    shape_flag: { fg: $foam, attr: b }
+    shape_float: { fg: $iris, attr: b }
+    shape_garbage: { fg: $text bg: $rose, attr: b }
+    shape_globpattern: { fg: "#b9dde3", attr: b }
+    shape_internalcall: { fg: "#b9dde3", attr: b }
+    shape_list: { fg: "#b9dde3", attr: b }
+    shape_literal: $foam
+    shape_match_pattern: $pine
+    shape_matching_brackets: { attr: u }
+    shape_nothing: "#cde6eb"
+    shape_operator: $gold
+    shape_or: { fg: $iris, attr: b }
+    shape_pipe: { fg: $iris, attr: b }
+    shape_range: { fg: $gold, attr: b }
+    shape_record: { fg: "#b9dde3", attr: b }
+    shape_redirection: { fg: $iris, attr: b }
+    shape_signature: { fg: $pine, attr: b }
+    shape_string_interpolation: { fg: "#b9dde3", attr: b }
+    shape_table: { fg: $foam, attr: b }
+    shape_variable: $iris
 }
 
-# let rose_pine = {
-#     # color for nushell primitives
-#     separator: "#e0def4"
-#     leading_trailing_space_bg: { attr: n } # no fg, no bg, attr none effectively turns this off
-#     header: "#31748f"
-#     empty: blue
-#     # Closures can be used to choose colors for specific values.
-#     # The value (in this case, a bool) is piped into the closure.
-#     bool: {|| if $in { '#9ccfd8' } else { '#908caa' } }
-#     int: "#e0def4"
-#     filesize: {|e|
-#       if $e == 0b {
-#         'white'
-#       } else if $e < 1mb {
-#         'cyan'
-#       } else { 'blue' }
-#     }
-#     duration: white
-#     date: {|| (date now) - $in |
-#       if $in < 1hr {
-#         'red3b'
-#       } else if $in < 6hr {
-#         'orange3'
-#       } else if $in < 1day {
-#         'yellow3b'
-#       } else if $in < 3day {
-#         'chartreuse2b'
-#       } else if $in < 1wk {
-#         'green3b'
-#       } else if $in < 6wk {
-#         'darkturquoise'
-#       } else if $in < 52wk {
-#         'deepskyblue3b'
-#       } else { 'dark_gray' }
-#     }    
-#     range: white
-#     float: white
-#     string: white
-#     nothing: white
-#     binary: white
-#     cellpath: white
-#     row_index: green_bold
-#     record: white
-#     list: white
-#     block: white
-#     hints: dark_gray
-
-#     shape_and: purple_bold
-#     shape_binary: purple_bold
-#     shape_block: blue_bold
-#     shape_bool: light_cyan
-#     shape_custom: green
-#     shape_datetime: cyan_bold
-#     shape_directory: cyan
-#     shape_external: cyan
-#     shape_externalarg: green_bold
-#     shape_filepath: cyan
-#     shape_flag: blue_bold
-#     shape_float: purple_bold
-#     # shapes are used to change the cli syntax highlighting
-#     shape_garbage: { fg: "#FFFFFF" bg: "#FF0000" attr: b}
-#     shape_globpattern: cyan_bold
-#     shape_int: purple_bold
-#     shape_internalcall: cyan_bold
-#     shape_list: cyan_bold
-#     shape_literal: blue
-#     shape_match_pattern: green
-#     shape_matching_brackets: { attr: u }
-#     shape_nothing: light_cyan
-#     shape_operator: yellow
-#     shape_or: purple_bold
-#     shape_pipe: purple_bold
-#     shape_range: yellow_bold
-#     shape_record: cyan_bold
-#     shape_redirection: purple_bold
-#     shape_signature: green_bold
-#     shape_string: green
-#     shape_string_interpolation: cyan_bold
-#     shape_table: blue_bold
-#     shape_variable: purple
-# }
+let-env LS_COLORS = (vivid generate rose_pine | str trim)
 
 # External completer example
 # let carapace_completer = {|spans|
@@ -419,7 +382,7 @@ let-env config = {
     vi_insert: block # block, underscore, line (block is the default)
     vi_normal: underscore # block, underscore, line  (underscore is the default)
   }
-  color_config: $duskfox_theme   # if you want a light theme, replace `$dark_theme` to `$light_theme`
+  color_config: $rose_pine   # if you want a light theme, replace `$dark_theme` to `$light_theme`
   use_grid_icons: true
   footer_mode: "25" # always, never, number_of_rows, auto
   float_precision: 2 # the precision for displaying floats in tables

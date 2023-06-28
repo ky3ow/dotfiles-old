@@ -1,4 +1,4 @@
-local palette = require("nightfox.palette").load("duskfox")
+local palette = require("nightfox.spec").load("duskfox")
 print(vim.inspect(palette))
 -- {
 --   base = "#bf616a",
