@@ -208,7 +208,7 @@ let rose_pine = {
     duration: $gold 
     date: {|| (date now) - $in |
       if $in < 1hr {
-        $rose
+        $love
       } else if $in < 6hr {
         $rose
       } else if $in < 1day {
