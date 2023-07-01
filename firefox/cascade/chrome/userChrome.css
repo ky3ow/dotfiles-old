@@ -25,11 +25,9 @@
                   https://github.com/crambaud/waterfall
 
 *==============================================================================================*/
-
-
-
-@import 'includes/cascade-config.css';
-@import 'includes/cascade-colours.css';
+ 
+@import 'includes/cascade-config-mouse.css';
+@import 'includes/cascade-rose-pine.css';
 
 @import 'includes/cascade-layout.css';
 @import 'includes/cascade-responsive.css';
@@ -37,3 +35,4 @@
 
 @import 'includes/cascade-nav-bar.css';
 @import 'includes/cascade-tabs.css';
+@import 'includes/cascade-tcr.css'

@@ -31,7 +31,9 @@
 .tab:hover,
 .tab.active { background: var(--uc-highlight-colour); }
 
-
+#pinnedtablist:not(.compact) .tab.active, #tablist .tab.active {
+	box-shadow: inset 3px 0 0 0 var(--uc-identity-colour-orange);
+}  
 
 #tablist-wrapper .tab-title-wrapper {
 
