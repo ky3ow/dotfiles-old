@@ -24,7 +24,7 @@
 
 
 /* remove window control buttons */
-.titlebar-buttonbox-container { display: none !important; }
+.titlebar-buttonbox-container { display: -moz-inline-block !important; }
 
 
 #pageActionButton { display: none !important; }

@@ -1,8 +1,12 @@
-#TabsToolbar { display: none !important; }
-#nav-bar { width: 100vw !important; }
+/* No mouse */
+/* #TabsToolbar { display: none !important; } */
+/* #nav-bar { width: 100vw !important; } */
 
---tab-selected-line: var(--uc-identity-colour-orange);
-
+/* Yes mouse */
+#titlebar { width: auto !important; }
+#toolbar-menubar { display: none; }
+#TabsToolbar .toolbar-items { display: none; } 
+#nav-bar { with: auto; flex-grow: 1 }
 
 #browser { position: relative; }
 #sidebar-box[sidebarcommand*="tabcenter"] #sidebar-header { display: none; }
