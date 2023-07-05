@@ -13,7 +13,7 @@
 # https://github.com/nushell/nu_scripts/tree/main/themes
 
 def "clear trash" [] {
-  ls ~/.local/share/Trash/files | each { rm -rfp $in }
+  ls ~/.local/share/Trash/files | each { rm -rfp $in.name }
 }
 
 let dark_theme = {

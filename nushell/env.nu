@@ -80,4 +80,5 @@ let-env NU_PLUGIN_DIRS = [
 let-env ANDROID_HOME = $"($env.HOME)/Android/Sdk"
 let-env PATH = ($env.PATH | append $"($env.ANDROID_HOME)/emulator")
 let-env PATH = ($env.PATH | append $"($env.ANDROID_HOME)/platform-tools")
+let-env PATH = ($env.PATH | append ($env.HOME + /.cargo/bin))
 
