@@ -33,6 +33,8 @@ config.keys = {
     }
 }
 
+config.key_map_preference = "Physical"
+
 config.unix_domains = {}
 
 -- WSL only --

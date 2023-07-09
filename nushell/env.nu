@@ -27,15 +27,22 @@ def create_left_prompt [] {
 }
 
 def create_right_prompt [] {
-    let time_segment = ([
-        (date now | date format '%m/%d/%Y %r')
+    # let time_segment = ([
+    #     (date now | date format '%m/%d/%Y %r')
+    # ] | str join)
+    let prompt = ([
+        (git status | find modified | length)
     ] | str join)
 
-    $time_segment
+    $prompt
 }
 
 # Use nushell functions to define your right and left prompt
+def create_starship [] {
+    ^starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)'
+}
 let-env PROMPT_COMMAND = {|| create_left_prompt }
+# let-env PROMPT_COMMAND = {|| create_starship }
 let-env PROMPT_COMMAND_RIGHT = {|| create_right_prompt }
 
 # The prompt indicators are environmental variables that represent
