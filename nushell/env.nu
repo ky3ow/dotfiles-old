@@ -27,23 +27,37 @@ def create_left_prompt [] {
 }
 
 def create_right_prompt [] {
-    # let time_segment = ([
-    #     (date now | date format '%m/%d/%Y %r')
-    # ] | str join)
+    let inside = (do { ^git rev-parse --is-inside-work-tree } | complete | get exit_code) == 0
+    let status = if $inside { 
+        (git status)
+    } else {
+        ()
+    }
+    let modified = ($status | find modified | length)
+
+    let modified_segment = if not $inside  {
+        ""
+    } else if ($status | find "not staged" | length) > 0 {
+        $"(ansi red_bold)($modified)"
+    } else {
+        $"(ansi green_bold)($modified)"
+    }
+
     let prompt = ([
-        (git status | find modified | length)
+        $modified_segment
     ] | str join)
 
-    $prompt
+    # $prompt
+    ""
 }
 
 # Use nushell functions to define your right and left prompt
 def create_starship [] {
     ^starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)'
 }
-let-env PROMPT_COMMAND = {|| create_left_prompt }
-# let-env PROMPT_COMMAND = {|| create_starship }
-let-env PROMPT_COMMAND_RIGHT = {|| create_right_prompt }
+# let-env PROMPT_COMMAND = {|| create_left_prompt }
+let-env PROMPT_COMMAND = {|| create_starship }
+let-env PROMPT_COMMAND_RIGHT = {|| create_right_prompt  }
 
 # The prompt indicators are environmental variables that represent
 # the state of the prompt
@@ -71,7 +85,8 @@ let-env ENV_CONVERSIONS = {
 #
 # By default, <nushell-config-dir>/scripts is added
 let-env NU_LIB_DIRS = [
-    ($nu.config-path | path dirname | path join 'scripts')
+    ($nu.config-path | path dirname | path join 'scripts'),
+    ($nu.config-path | path dirname | path join 'aliases')
 ]
 
 # Directories to search for plugin binaries when calling register
@@ -89,3 +104,5 @@ let-env PATH = ($env.PATH | append $"($env.ANDROID_HOME)/emulator")
 let-env PATH = ($env.PATH | append $"($env.ANDROID_HOME)/platform-tools")
 let-env PATH = ($env.PATH | append ($env.HOME + /.cargo/bin))
 
+# mkdir ~/.cache/starship
+# starship init nu | save -f ~/.cache/starship/init.nu
