@@ -454,3 +454,9 @@ export extern "bisect reset" [
 export extern "help" [
   command: string@"nu-complete git subcommands"       # subcommand to show help for
 ]
+
+export extern main [
+    --version(-v)
+    -C: string
+    # ... etc.
+]

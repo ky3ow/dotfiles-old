@@ -6,9 +6,9 @@
 # And here is the theme collection
 # https://github.com/nushell/nu_scripts/tree/main/themes
 
-use scripts * 
-
-use aliases *  
+use git.nu 
+use aliases.nu *
+use general.nu *
 
 let dark_theme = {
     # color for nushell primitives

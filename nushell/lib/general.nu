@@ -2,4 +2,3 @@
 export def "clear trash" [] {
   ls ~/.local/share/Trash/files | each { rm -rfp $in.name }
 }
-
