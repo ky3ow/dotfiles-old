@@ -6,10 +6,9 @@
 # And here is the theme collection
 # https://github.com/nushell/nu_scripts/tree/main/themes
 
-use scripts *
-use aliases *  
+use scripts * 
 
-# source ~/.cache/starship/init.nu
+use aliases *  
 
 let dark_theme = {
     # color for nushell primitives

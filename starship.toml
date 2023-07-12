@@ -13,17 +13,16 @@ $git_status\
 $fill\
 $nodejs\
 $line_break\
-$character"""
+$character
+"""
 
 [fill]
 symbol = " "
 
 [character]
-# success_symbol = "[>](bold green)"
-# error_symbol = "[>](bold red)"
-success_symbol = ""
-error_symbol = ""
-# disabled = true
+success_symbol = "[>](bold green)"
+error_symbol = "[>](bold red)"
+disabled = true
 
 [git_branch]
 symbol = " "
@@ -35,7 +34,7 @@ format = '[ $hash$tag ]($style)'
 only_detached = false
 
 [git_status]
-format = '[  $ahead_behind$all_status](bold red)'
+format = '[$ahead_behind$all_status](bold red)'
 up_to_date = '[ ](bold yellow)'
 staged = '[+$count ](bold green)'
 ahead = '[⇡${count} ](bold blue)'

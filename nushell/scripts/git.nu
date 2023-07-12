@@ -1,34 +1,53 @@
+def "nu-complete inside git" [] {
+  not (do -i {
+    git rev-parse --is-inside-work-tree
+  } | is-empty)
+}
 
 def "nu-complete git available upstream" [] {
+  if not (nu-complete inside git) { return }
+  
   ^git branch -a | lines | each { |line| $line | str replace '\* ' "" | str trim }
 }
 
 def "nu-complete git remotes" [] {
+  if not (nu-complete inside git) { return }
+  
   ^git remote | lines | each { |line| $line | str trim }
 }
 
 def "nu-complete git log" [] {
+  if not (nu-complete inside git) { return }
+  
   ^git log --pretty=%h | lines | each { |line| $line | str trim }
 }
 
 # Yield all existing commits in descending chronological order.
 def "nu-complete git commits all" [] {
+  if not (nu-complete inside git) { return }
+  
   ^git rev-list --all --remotes --pretty=oneline | lines | parse "{value} {description}"
 }
 
 # Yield commits of current branch only. This is useful for e.g. cut points in
 # `git rebase`.
 def "nu-complete git commits current branch" [] {
+  if not (nu-complete inside git) { return }
+  
   ^git log --pretty="%h %s" | lines | parse "{value} {description}"
 }
 
 # Yield local branches like `main`, `feature/typo_fix`
 def "nu-complete git local branches" [] {
+  if not (nu-complete inside git) { return }
+  
   ^git branch | lines | each { |line| $line | str replace '\* ' "" | str trim }
 }
 
 # Yield remote branches like `origin/main`, `upstream/feature-a`
 def "nu-complete git remote branches with prefix" [] {
+  if not (nu-complete inside git) { return }
+  
   ^git branch -r | lines | parse -r '^\*?(\s*|\s*\S* -> )(?P<branch>\S*$)' | get branch | uniq
 }
 
@@ -38,12 +57,15 @@ def "nu-complete git remote branches with prefix" [] {
 def "nu-complete git remote branches nonlocal without prefix" [] {
   # Get regex to strip remotes prefixes. It will look like `(origin|upstream)`
   # for the two remotes `origin` and `upstream`.
+  if not (nu-complete inside git) { return }
+  
   let remotes_regex = (["(", ((nu-complete git remotes | each {|r| [$r, '/'] | str join}) | str join "|"), ")"] | str join)
   let local_branches = (nu-complete git local branches)
   ^git branch -r | lines | parse -r (['^[\* ]+', $remotes_regex, '?(?P<branch>\S+)'] | flatten | str join) | get branch | uniq | where {|branch| $branch != "HEAD"} | where {|branch| $branch not-in $local_branches }
 }
 
 def "nu-complete git switch" [] {
+  if not (nu-complete inside git) { return } 
   (nu-complete git local branches)
   | parse "{value}"
   | insert description "local branch"
@@ -53,6 +75,8 @@ def "nu-complete git switch" [] {
 }
 
 def "nu-complete git checkout" [] {
+  if not (nu-complete inside git) { return }
+  
   (nu-complete git local branches)
   | parse "{value}"
   | insert description "local branch"
@@ -67,6 +91,8 @@ def "nu-complete git checkout" [] {
 
 # Arguments to `git rebase --onto <arg1> <arg2>`
 def "nu-complete git rebase" [] {
+  if not (nu-complete inside git) { return }
+  
   (nu-complete git local branches)
   | parse "{value}"
   | insert description "local branch"
@@ -77,18 +103,26 @@ def "nu-complete git rebase" [] {
 }
 
 def "nu-complete git stash-list" [] {
+  if not (nu-complete inside git) { return }
+  
   git stash list | lines | parse "{value}: {description}"
 }
 
 def "nu-complete git tags" [] {
+  if not (nu-complete inside git) { return }
+  
   ^git tag | lines
 }
 
 def "nu-complete git built-in-refs" [] {
+  if not (nu-complete inside git) { return }
+  
   [HEAD FETCH_HEAD ORIG_HEAD]
 }
 
 def "nu-complete git refs" [] {
+  if not (nu-complete inside git) { return }
+  
   nu-complete git switchable branches
   | parse "{value}"
   | insert description Branch
@@ -97,6 +131,8 @@ def "nu-complete git refs" [] {
 }
 
 def "nu-complete git subcommands" [] {
+  if not (nu-complete inside git) { return }
+  
   ^git help -a | lines | where $it starts-with "   " | parse -r '\s*(?P<value>[^ ]+) \s*(?P<description>\w.*)'
 }
 
