@@ -30,6 +30,11 @@ config.keys = {
         key = "s",
         mods = "CTRL|SHIFT",
         action = act.PaneSelect { alphabet = "123456789" },
+    },
+    {
+        key = "y",
+        mods = "CTRL|SHIFT",
+        action = act.QuickSelect
     }
 }
 
