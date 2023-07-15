@@ -17,6 +17,8 @@ export alias gmr = git push -u origin HEAD
 
 export alias gcp = git cherry-pick 
 export alias gre = git rebase
-
+export alias gC = git continue
+export alias gA = git abort
+ 
 export alias hx = helix
 

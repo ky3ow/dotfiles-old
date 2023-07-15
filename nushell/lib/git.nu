@@ -460,3 +460,29 @@ export extern main [
     -C: string
     # ... etc.
 ]
+
+# Continue merge or rebase
+export def "continue" [] {
+  if not (nu-complete inside git) { return }
+  let status = (^git status)
+  if not ($status | find "cherry-picking" | is-empty) {
+    ^git cherry-pick --continue
+  } else if not ($status | find "rebase in progress" | is-empty) {
+    ^git rebase --continue
+  } else {
+    print "No rebase or cherry-pick in progress"
+  }
+}
+
+# Abort merge or rebase
+export def "abort" [] {
+  if not (nu-complete inside git) { return }
+  let status = (^git status)
+  if not ($status | find "cherry-picking" | is-empty) {
+    ^git cherry-pick --abort
+  } else if not ($status | find "rebase in progress" | is-empty) {
+    ^git rebase --abort
+  } else {
+    print "No rebase or cherry-pick in progress"
+  }
+}
