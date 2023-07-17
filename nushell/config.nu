@@ -201,7 +201,7 @@ let-env config = {
   }
   table: {
     mode: light # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
-    index_mode: auto # "always" show indexes, "never" show indexes, "auto" = show indexes when a table has "index" column
+    index_mode: always # "always" show indexes, "never" show indexes, "auto" = show indexes when a table has "index" column
     show_empty: true # show 'empty list' and 'empty record' placeholders for command output
     trim: {
       methodology: wrapping # wrapping or truncating
