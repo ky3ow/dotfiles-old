@@ -20,5 +20,3 @@ export alias gre = git rebase
 export alias gC = git continue
 export alias gA = git abort
  
-export alias hx = helix
-

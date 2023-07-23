@@ -20,7 +20,7 @@ def create_starship [] {
 
 
 # Preferred default editor 
-let editor = "helix"
+let editor = "hx"
 let android = ($env.HOME + /Android/Sdk)
 
 load-env {
