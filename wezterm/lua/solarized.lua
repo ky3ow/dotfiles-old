@@ -1,28 +1,22 @@
--- rose-pine
--- Copyright (c) 2022 rose-pine
-
--- repository: https://github.com/neapsix/wezterm
--- license: MIT
-
 local M = {}
 
 local palette = {
-    base = '#191724',
-    overlay = '#26233a',
-    muted = '#6e6a86',
-    text = '#e0def4',
-    love = '#eb6f92',
-    gold = '#f6c177',
-    rose = '#ebbcba',
-    pine = '#31748f',
-    foam = '#9ccfd8',
-    iris = '#c4a7e7',
-    highlight_high = '#524f67',
+    base = '#002b36',
+    overlay = '#073642',
+    muted = '#586e75',
+    text = '#93a1a1',
+    red = '#dc322f',
+    yellow = '#b58900',
+    orange = '#cb4b16',
+    green = '#859900',
+    cyan = '#2aa198',
+    violet = '#6c71c4',
+    highlight_high = '#eee85d',
 }
 
 local active_tab = {
     bg_color = palette.overlay,
-    fg_color = palette.iris,
+    fg_color = palette.cyan,
 }
 
 local inactive_tab = {
@@ -36,29 +30,29 @@ function M.colors()
         background = palette.base,
         cursor_bg = palette.highlight_high,
         cursor_border = palette.highlight_high,
-        cursor_fg = palette.text,
-        selection_bg = '#2a283e',
+        cursor_fg = palette.muted,
+        selection_bg = palette.overlay,
         selection_fg = palette.text,
 
         ansi = {
             palette.overlay,
-            palette.love,
-            palette.pine,
-            palette.gold,
-            palette.foam,
-            palette.iris,
-            palette.rose,
+            palette.red,
+            palette.green,
+            palette.yellow,
+            palette.cyan,
+            palette.violet,
+            palette.orange,
             palette.text,
         },
 
         brights = {
             palette.muted,
-            palette.love,
-            palette.pine,
-            palette.gold,
-            palette.foam,
-            palette.iris,
-            palette.rose,
+            palette.red,
+            palette.green,
+            palette.yellow,
+            palette.cyan,
+            palette.violet,
+            palette.orange,
             palette.text,
         },
 
