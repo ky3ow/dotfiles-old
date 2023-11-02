@@ -19,6 +19,13 @@ def create_left_prompt [] {
     }
 }
 
+def generate_ls_colors [] {
+    let palette = (do -i { ^vivid generate solarized-dark })
+    if (not ($palette | is-empty)) {
+        $palette | str trim
+    }
+}
+
 # Preferred default editor 
 let editor = "hx"
 let android = ($env.HOME + /Android/Sdk)
@@ -44,7 +51,7 @@ load-env {
     EDITOR: $editor
     VISUAL: $editor
     # Colors for LS command
-    # LS_COLORS: (vivid generate rose_pine | str trim)
+    LS_COLORS: (generate_ls_colors)
     # Prompt
     PROMPT_INDICATOR: "> " 
     PROMPT_INDICATOR_VI_INSERT: ": " 
