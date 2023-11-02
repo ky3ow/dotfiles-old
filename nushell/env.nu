@@ -23,6 +23,8 @@ def generate_ls_colors [] {
     let palette = (do -i { ^vivid generate solarized-dark })
     if (not ($palette | is-empty)) {
         $palette | str trim
+    } else {
+        ""
     }
 }
 
@@ -73,5 +75,6 @@ load-env {
         | append ($android + /emulator) 
         | append ($android + /platform-tools)
         | append ($env.HOME + /.cargo/bin)
+        | append ("/home" + $env.HOME + /.local/share/bob/nvim-bin)
     )
 }
