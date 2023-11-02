@@ -18,21 +18,16 @@ if not status_ok then
 end
 
 lazy.setup({
-
-    --** Best color scheme **--
     {
-        "EdenEast/nightfox.nvim",
-        name = "nightfox",
+        "ishan9299/nvim-solarized-lua",
         lazy = false,
         priority = 1000,
         config = function()
-            require('nightfox').setup({})
-            vim.cmd('colorscheme duskfox')
+            vim.cmd("colorscheme solarized-flat")
         end
     },
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    { 'rose-pine/neovim', name = 'rose-pine' },
-
+    { 'rose-pine/neovim',         name = 'rose-pine' },
+    { 'tjdevries/colorbuddy.nvim' },
     {
         "nvim-lua/popup.nvim",
     },
