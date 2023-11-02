@@ -6,7 +6,7 @@
 # And here is the theme collection
 # https://github.com/nushell/nu_scripts/tree/main/themes
 
-use git.nu 
+use git.nu
 use aliases.nu *
 use general.nu *
 
@@ -178,12 +178,6 @@ let rose_pine = {
     shape_table: { fg: $foam, attr: b }
     shape_variable: $iris
 }
-
-# External completer example
-# let carapace_completer = {|spans|
-#     carapace $spans.0 nushell $spans | from json
-# }
-
 
 # The default config record. This is where much of your global configuration is setup.
 let-env config = {

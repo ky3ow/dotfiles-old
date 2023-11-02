@@ -1,23 +1,23 @@
 # Env config
 def create_left_prompt [] {
-    let home = if $nu.os-info.name == "windows" {
-        $env.USERPROFILE
+    let starship = (do -i { ^starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)' })
+    if ($starship | is-empty) {
+        let home = if $nu.os-info.name == "windows" {
+            $env.USERPROFILE
+        } else {
+            $env.HOME
+        }
+
+        let dir = ([
+            ($env.PWD | str substring 0..($home | str length) | str replace -s $home "~"),
+            ($env.PWD | str substring ($home | str length)..)
+        ] | str join)
+
+        $dir
     } else {
-        $env.HOME
+        $starship
     }
-
-    let dir = ([
-        ($env.PWD | str substring 0..($home | str length) | str replace -s $home "~"),
-        ($env.PWD | str substring ($home | str length)..)
-    ] | str join)
-
-    $dir
 }
-
-def create_starship [] {
-    ^starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)'
-}
-
 
 # Preferred default editor 
 let editor = "hx"
@@ -44,13 +44,13 @@ load-env {
     EDITOR: $editor
     VISUAL: $editor
     # Colors for LS command
-    LS_COLORS: (vivid generate rose_pine | str trim)
+    # LS_COLORS: (vivid generate rose_pine | str trim)
     # Prompt
     PROMPT_INDICATOR: "> " 
     PROMPT_INDICATOR_VI_INSERT: ": " 
     PROMPT_INDICATOR_VI_NORMAL: "> "  
     PROMPT_MULTILINE_INDICATOR: "::: "  
-    PROMPT_COMMAND: {|| create_starship }
+    PROMPT_COMMAND: {|| create_left_prompt }
     PROMPT_COMMAND_RIGHT: {|| "" }
     # Directories for plugins and for `source` and `use` scripts
     NU_LIB_DIRS: [
