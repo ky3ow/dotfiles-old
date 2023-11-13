@@ -20,7 +20,7 @@ def create_left_prompt [] {
 }
 
 def generate_ls_colors [] {
-    let palette = (do -i { ^vivid generate solarized-dark })
+    let palette = (do -i { ^vivid generate zenburn })
     if (not ($palette | is-empty)) {
         $palette | str trim
     } else {
