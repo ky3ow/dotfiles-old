@@ -29,7 +29,7 @@ def generate_ls_colors [] {
 }
 
 # Preferred default editor 
-let editor = "hx"
+let editor = "vim"
 let android = ($env.HOME + /Android/Sdk)
 
 load-env {
