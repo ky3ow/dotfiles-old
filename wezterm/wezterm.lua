@@ -57,8 +57,4 @@ if wezterm.target_triple == "x86_64-unknown-linux-gnu" then
     require('lua/linux').configure_linux(config)
 end
 
--- Enable cool image rendering protocol --
--- config.enable_kitty_graphics = true
---table.insert(config.unix_domains, { name = 'unix' })
-
 return config
